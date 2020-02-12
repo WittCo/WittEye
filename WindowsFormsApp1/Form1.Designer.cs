@@ -262,9 +262,13 @@
             this.radioButton40 = new System.Windows.Forms.RadioButton();
             this.radioButton38 = new System.Windows.Forms.RadioButton();
             this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.iBC_EBBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.wittEyEDataSet = new WittEyE.WittEyEDataSet();
             this.button8 = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.iBC_EBTableAdapter = new WittEyE.WittEyEDataSetTableAdapters.IBC_EBTableAdapter();
+            this.tableAdapterManager = new WittEyE.WittEyEDataSetTableAdapters.TableAdapterManager();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.contextMenuStrip2.SuspendLayout();
@@ -307,6 +311,8 @@
             this.groupBox17.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView7)).BeginInit();
             this.tabPage7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.iBC_EBBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.wittEyEDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -1913,7 +1919,6 @@
             // 
             this.dataGridView2.AllowUserToOrderColumns = true;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Cursor = System.Windows.Forms.Cursors.Default;
             this.dataGridView2.Location = new System.Drawing.Point(0, 106);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.Size = new System.Drawing.Size(570, 15);
@@ -1956,7 +1961,6 @@
             // radioButton36
             // 
             this.radioButton36.Appearance = System.Windows.Forms.Appearance.Button;
-            this.radioButton36.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.radioButton36.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
             this.radioButton36.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButton36.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -2879,9 +2883,19 @@
             this.tabPage7.Text = "tabPage7";
             this.tabPage7.UseVisualStyleBackColor = true;
             // 
+            // iBC_EBBindingSource
+            // 
+            this.iBC_EBBindingSource.DataMember = "IBC_EB";
+            this.iBC_EBBindingSource.DataSource = this.wittEyEDataSet;
+            // 
+            // wittEyEDataSet
+            // 
+            this.wittEyEDataSet.DataSetName = "WittEyEDataSet";
+            this.wittEyEDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(37, 44);
+            this.button8.Location = new System.Drawing.Point(17, 26);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(75, 23);
             this.button8.TabIndex = 0;
@@ -2899,6 +2913,16 @@
             // 
             this.timer2.Interval = 5000;
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
+            // 
+            // iBC_EBTableAdapter
+            // 
+            this.iBC_EBTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.IBC_EBTableAdapter = this.iBC_EBTableAdapter;
+            this.tableAdapterManager.UpdateOrder = WittEyE.WittEyEDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
             // Form1
             // 
@@ -2970,6 +2994,8 @@
             this.groupBox17.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView7)).EndInit();
             this.tabPage7.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.iBC_EBBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.wittEyEDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -3205,6 +3231,10 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TabPage tabPage7;
         private System.Windows.Forms.Button button8;
+        private WittEyE.WittEyEDataSet wittEyEDataSet;
+        private System.Windows.Forms.BindingSource iBC_EBBindingSource;
+        private WittEyE.WittEyEDataSetTableAdapters.IBC_EBTableAdapter iBC_EBTableAdapter;
+        private WittEyE.WittEyEDataSetTableAdapters.TableAdapterManager tableAdapterManager;
     }
 }
 

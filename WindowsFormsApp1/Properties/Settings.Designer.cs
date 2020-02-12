@@ -32,5 +32,16 @@ namespace WittEyE.Properties {
                 return ((string)(this["ConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=AW-PRODTS\\WINCCPLUSMIG2014;Initial Catalog=WittEyE;User ID=sa;Passwor" +
+            "d=demo123-")]
+        public string WittEyEConnectionString {
+            get {
+                return ((string)(this["WittEyEConnectionString"]));
+            }
+        }
     }
 }
