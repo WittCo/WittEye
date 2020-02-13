@@ -17,7 +17,7 @@ using Size = System.Drawing.Size;
 using AdaptiveVision;
 using AvlNet;
 using NewElectronicTechnology.SynView;
-using System.Data.Sql;
+using System.Data.SqlClient;
 
 
 
@@ -49,7 +49,7 @@ namespace WindowsFormsApp1
         string CamIP = "192.168.0.186", CamIP2 = "192.168.0.187";
         long? BildID, BildID2, timebild, timebild2;
         bool a1, a2;
-
+        int ID = 0;
 
 
         IntPtr m_hDisplayWindow;
@@ -134,6 +134,8 @@ namespace WindowsFormsApp1
         //Load XML Artikel
         private void Form1_Load(object sender, EventArgs e)
         {
+            // TODO: Diese Codezeile lädt Daten in die Tabelle "wittEyEDataSet.IBC_EB". Sie können sie bei Bedarf verschieben oder entfernen.
+            this.iBC_EBTableAdapter.Fill(this.wittEyEDataSet.IBC_EB);
             UpdateXLMDatei();
             Refresch_XML();
             Refresch_EB_Offen();
@@ -1065,6 +1067,7 @@ namespace WindowsFormsApp1
                 panel1.BackColor = Color.Red;
                 tabControl1.SelectedTab = tabPage5;
                 label16.Text = eb;
+                eB_NummerTextBox.Text = eb;
 
                 string destPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "EB_Offen\\");
 
@@ -1992,10 +1995,12 @@ namespace WindowsFormsApp1
             {
                 NeuEB(label11.Text);
                 Mehrartikel(1, label11.Text, textBox12.Text);
+                iBC_ArtikelNummerTextBox.Text = label11.Text;
             }
             else
             {
                 Mehrartikel(0, label11.Text, textBox12.Text);
+                iBC_ArtikelNummerTextBox.Text = label11.Text;
             }
 
             ResetArtikelAswahl();
@@ -2571,6 +2576,136 @@ namespace WindowsFormsApp1
             
         
             }
+
+        private void button8_Click_3(object sender, EventArgs e)
+        {
+            this.iBC_EBTableAdapter.Update(this.wittEyEDataSet.IBC_EB);
+        }
+
+        private void button23_Click_1(object sender, EventArgs e)
+        {
+
+           // iBC_EBDataGridView.Rows.Add("EB555", "AAA555", "CCCCC");
+
+            /*
+            DataTable dt = iBC_EBDataGridView.DataSource as DataTable;
+            dt.Rows.Add(new object[] { "1235"});
+
+         
+            DataGridViewRow row = (DataGridViewRow)iBC_EBDataGridView.Rows[0].Clone();
+            row.Cells[0].Value = "1231";
+            row.Cells[1].Value = "666666";
+
+            iBC_EBDataGridView.Rows.Add(row);
+            */
+            //this.iBC_EBDataGridView.Rows.Add("EB555", "AAA555", "CCCCC");
+
+            //wittEyEDataSet.IBC_EB.AddIBC_EBRow("EB555", "AAA555", "CCCCC");
+
+            //  this.iBC_EBTableAdapter.(this.wittEyEDataSet.IBC_EB);
+
+            
+             
+            
+        }
+
+        private void button25_Click_1(object sender, EventArgs e)
+        {
+            string connetionString;
+            SqlConnection cnn;
+            connetionString = "Data Source=AW-PRODTS\\WINCCPLUSMIG2014;Initial Catalog=WittEyE;User ID=sa;Password=demo123-";
+            cnn = new SqlConnection(connetionString);
+            cnn.Open();
+
+            if (cnn.State == System.Data.ConnectionState.Open)
+            {
+                string q = "insert into IBC_EB(EB_Nummer,IBC_ArtikelNummer)values('" + eB_NummerTextBox.Text.ToString() + "','" + iBC_ArtikelNummerTextBox.Text.ToString() + "')";
+                SqlCommand cmd = new SqlCommand(q, cnn);
+                cmd.ExecuteNonQuery();
+               
+            }
+
+
+
+            MessageBox.Show("Connection Open  !");
+            cnn.Close();
+        }
+
+        private void button23_Click_2(object sender, EventArgs e)
+        {
+            string connetionString;
+            SqlConnection cnn;
+            SqlDataAdapter adapt;
+            connetionString = "Data Source=AW-PRODTS\\WINCCPLUSMIG2014;Initial Catalog=WittEyE;User ID=sa;Password=demo123-";
+            cnn = new SqlConnection(connetionString);
+            cnn.Open();
+            
+            DataTable dt = new DataTable();
+            adapt = new SqlDataAdapter("select * from IBC_EB", cnn);
+            adapt.Fill(dt);
+            iBC_EBDataGridView.DataSource = dt;
+            cnn.Close();
+        }
+
+        private void button29_Click(object sender, EventArgs e)
+        {
+          
+            SqlCommand cmd;
+            string connetionString;
+            SqlConnection cnn;
+            SqlDataAdapter adapt;
+            connetionString = "Data Source=AW-PRODTS\\WINCCPLUSMIG2014;Initial Catalog=WittEyE;User ID=sa;Password=demo123-";
+            cnn = new SqlConnection(connetionString);
+
+            if (ID != 0)
+            {
+                cmd = new SqlCommand("delete IBC_EB where ID=@id", cnn);
+                cnn.Open();
+                cmd.Parameters.AddWithValue("@id", ID);
+                cmd.ExecuteNonQuery();
+                cnn.Close();
+                MessageBox.Show("Record Deleted Successfully!");
+                
+              
+            }
+            else
+            {
+                MessageBox.Show("Please Select Record to Delete");
+            }
+        }
+
+        private void iBC_EBDataGridView_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            ID = Convert.ToInt32(iBC_EBDataGridView.Rows[e.RowIndex].Cells[0].Value.ToString());
+            eB_NummerTextBox.Text = iBC_EBDataGridView.Rows[e.RowIndex].Cells[1].Value.ToString();
+            iBC_ArtikelNummerTextBox.Text = iBC_EBDataGridView.Rows[e.RowIndex].Cells[2].Value.ToString();
+        }
+
+        private void button30_Click_1(object sender, EventArgs e)
+        {
+            SqlCommand cmd;
+            string connetionString;
+            SqlConnection cnn;
+            SqlDataAdapter adapt;
+            connetionString = "Data Source=AW-PRODTS\\WINCCPLUSMIG2014;Initial Catalog=WittEyE;User ID=sa;Password=demo123-";
+            cnn = new SqlConnection(connetionString);
+
+            if ( eB_NummerTextBox.Text != "" && iBC_ArtikelNummerTextBox.Text != "")
+            {
+                cmd = new SqlCommand("insert into IBC_EB(EB_Nummer,IBC_ArtikelNummer) values(@EB_Nummer,@IBC_ArtikelNummer)", cnn);
+                cnn.Open();
+                cmd.Parameters.AddWithValue("@EB_Nummer", eB_NummerTextBox.Text);
+                cmd.Parameters.AddWithValue("@IBC_ArtikelNummer", iBC_ArtikelNummerTextBox.Text);
+                cmd.ExecuteNonQuery();
+                cnn.Close();
+                MessageBox.Show("Record Inserted Successfully");
+                
+            }
+            else
+            {
+                MessageBox.Show("Please Provide Details!");
+            }
+        }
 
         private void checkBox6_CheckedChanged_1(object sender, EventArgs e)
         {

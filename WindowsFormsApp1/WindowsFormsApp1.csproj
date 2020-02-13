@@ -151,6 +151,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="we_vision.cs" />
     <Compile Include="we_xml.cs" />
+    <Compile Include="WittEyEDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WittEyEDataSet.xsd</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Einstelungen.resx">
       <DependentUpon>Einstelungen.cs</DependentUpon>
     </EmbeddedResource>
@@ -187,6 +192,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="WittEyEDataSet.xsc">
+      <DependentUpon>WittEyEDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="WittEyEDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>WittEyEDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="WittEyEDataSet.xss">
+      <DependentUpon>WittEyEDataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
