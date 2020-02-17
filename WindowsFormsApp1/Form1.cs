@@ -108,13 +108,47 @@ namespace WindowsFormsApp1
                 Close();
             }
 
-            
-            
+
+			FillSEGridView(dataSetSE);
 
         }
 
+		private void FillSEGridView(DataSet dataSetSE)
+		{
+            string xmlDir = @"V:\Offen Archiv\";
+            int countFiles = Directory.GetFiles(xmlDir).Length;
 
-        public static class MyStaticValues
+            for (int i = 0; i < countFiles; i++)
+            {
+                try
+                {
+                    XmlDocument xmlProducts = new XmlDocument();
+                    xmlProducts.Load(Directory.GetFiles(xmlDir)[i].ToString());
+
+                    string ebString = xmlProducts.SelectSingleNode("//Beleg/Belege.Belegnummer").InnerText;
+                    XmlNodeList xmlPositionen = xmlProducts.SelectNodes("//Beleg/BelegePositionen/Belege/BelegePosition");
+
+                    for(int j = 0; j < xmlPositionen.Count; j++)
+                    {
+                        string artikelnummer = xmlPositionen.Item(j).SelectSingleNode("BelegePositionen.ArtikelNummer").InnerText;
+                        string restinhalt = xmlPositionen.Item(j).SelectSingleNode("BelegePositionen.K_Restinhalt").InnerText;
+                        dataSetSE.Tables[0].Rows.Add(ebString, artikelnummer, restinhalt);
+                    }
+
+                }
+                catch (FileNotFoundException e)
+                {
+                    MessageBox.Show(e.Message);
+                }
+            }
+
+			DataGridViewSE.AutoGenerateColumns = true;
+			DataGridViewSE.DataSource = dataSetSE.Tables[0];
+
+            //dataSetSE.Tables[0].Rows.Add("150", "156", "007");
+		}
+
+		public static class MyStaticValues
         {
             public static bool camtrig2 { get; set; }
 
@@ -2571,6 +2605,11 @@ namespace WindowsFormsApp1
             
         
             }
+
+        private void textBox20_TextChanged(object sender, EventArgs e)
+        {
+            DataGridViewSE
+        }
 
         private void checkBox6_CheckedChanged_1(object sender, EventArgs e)
         {
