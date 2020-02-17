@@ -36,7 +36,7 @@ namespace WindowsFormsApp1
         DataSet ds4 = new DataSet();
         DataSet ds5 = new DataSet();
 
-        we_vision vis = new we_vision();
+        
 
         //private readonly ProgramMacrofilters macros;
         public static int NodeCount;
@@ -60,13 +60,14 @@ namespace WindowsFormsApp1
         LvSystem m_pSystem, m_pSystem2;
 
         DD_Xml ddXml = new DD_Xml();
+        DD_Sql ddsql = new DD_Sql();
 
 
-        public Form1()
+
+       public Form1()
         {
             InitializeComponent();
 
-          
 
             try
             {
@@ -108,8 +109,9 @@ namespace WindowsFormsApp1
                 Close();
             }
 
-            
-            
+          
+
+           
 
         }
 
@@ -1600,7 +1602,7 @@ namespace WindowsFormsApp1
 
         private void button11_Click(object sender, EventArgs e)
         {
-            CMD("/C Q:&cd /Versionen/ALPHAPLAN8483WITT/app/& AlphaplanSchnittstellen.exe -run DatenBereitstellung -set /Versionen/WITT/app/Data/BelegePositionen.apsdb");
+            CMD("/C Q:&cd /Versionen/ALPHAPLAN8483WITT/app/& AlphaplanSchnittstellen.exe -run DatenBereitstellung -set //Aw-ap2019/interface/VISION/Alphaplan Export Datai/BelegePositionen.apsdb");
 
         }
 
@@ -2579,7 +2581,7 @@ namespace WindowsFormsApp1
 
         private void button8_Click_3(object sender, EventArgs e)
         {
-            this.iBC_EBTableAdapter.Update(this.wittEyEDataSet.IBC_EB);
+            
         }
 
         private void button23_Click_1(object sender, EventArgs e)
@@ -2611,67 +2613,22 @@ namespace WindowsFormsApp1
 
         private void button25_Click_1(object sender, EventArgs e)
         {
-            string connetionString;
-            SqlConnection cnn;
-            connetionString = "Data Source=AW-PRODTS\\WINCCPLUSMIG2014;Initial Catalog=WittEyE;User ID=sa;Password=demo123-";
-            cnn = new SqlConnection(connetionString);
-            cnn.Open();
-
-            if (cnn.State == System.Data.ConnectionState.Open)
-            {
-                string q = "insert into IBC_EB(EB_Nummer,IBC_ArtikelNummer)values('" + eB_NummerTextBox.Text.ToString() + "','" + iBC_ArtikelNummerTextBox.Text.ToString() + "')";
-                SqlCommand cmd = new SqlCommand(q, cnn);
-                cmd.ExecuteNonQuery();
-               
-            }
+          
 
 
 
-            MessageBox.Show("Connection Open  !");
-            cnn.Close();
+           
         }
 
         private void button23_Click_2(object sender, EventArgs e)
         {
-            string connetionString;
-            SqlConnection cnn;
-            SqlDataAdapter adapt;
-            connetionString = "Data Source=AW-PRODTS\\WINCCPLUSMIG2014;Initial Catalog=WittEyE;User ID=sa;Password=demo123-";
-            cnn = new SqlConnection(connetionString);
-            cnn.Open();
-            
-            DataTable dt = new DataTable();
-            adapt = new SqlDataAdapter("select * from IBC_EB", cnn);
-            adapt.Fill(dt);
-            iBC_EBDataGridView.DataSource = dt;
-            cnn.Close();
+     
         }
 
         private void button29_Click(object sender, EventArgs e)
         {
           
-            SqlCommand cmd;
-            string connetionString;
-            SqlConnection cnn;
-            SqlDataAdapter adapt;
-            connetionString = "Data Source=AW-PRODTS\\WINCCPLUSMIG2014;Initial Catalog=WittEyE;User ID=sa;Password=demo123-";
-            cnn = new SqlConnection(connetionString);
-
-            if (ID != 0)
-            {
-                cmd = new SqlCommand("delete IBC_EB where ID=@id", cnn);
-                cnn.Open();
-                cmd.Parameters.AddWithValue("@id", ID);
-                cmd.ExecuteNonQuery();
-                cnn.Close();
-                MessageBox.Show("Record Deleted Successfully!");
-                
-              
-            }
-            else
-            {
-                MessageBox.Show("Please Select Record to Delete");
-            }
+           
         }
 
         private void iBC_EBDataGridView_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -2683,28 +2640,7 @@ namespace WindowsFormsApp1
 
         private void button30_Click_1(object sender, EventArgs e)
         {
-            SqlCommand cmd;
-            string connetionString;
-            SqlConnection cnn;
-            SqlDataAdapter adapt;
-            connetionString = "Data Source=AW-PRODTS\\WINCCPLUSMIG2014;Initial Catalog=WittEyE;User ID=sa;Password=demo123-";
-            cnn = new SqlConnection(connetionString);
-
-            if ( eB_NummerTextBox.Text != "" && iBC_ArtikelNummerTextBox.Text != "")
-            {
-                cmd = new SqlCommand("insert into IBC_EB(EB_Nummer,IBC_ArtikelNummer) values(@EB_Nummer,@IBC_ArtikelNummer)", cnn);
-                cnn.Open();
-                cmd.Parameters.AddWithValue("@EB_Nummer", eB_NummerTextBox.Text);
-                cmd.Parameters.AddWithValue("@IBC_ArtikelNummer", iBC_ArtikelNummerTextBox.Text);
-                cmd.ExecuteNonQuery();
-                cnn.Close();
-                MessageBox.Show("Record Inserted Successfully");
-                
-            }
-            else
-            {
-                MessageBox.Show("Please Provide Details!");
-            }
+           
         }
 
         private void checkBox6_CheckedChanged_1(object sender, EventArgs e)
