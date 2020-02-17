@@ -258,6 +258,13 @@
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.button8 = new System.Windows.Forms.Button();
             this.searchExportTab = new System.Windows.Forms.TabPage();
+            this.RestinhaltSearch = new System.Windows.Forms.Label();
+            this.textBox20 = new System.Windows.Forms.TextBox();
+            this.EB = new System.Windows.Forms.Label();
+            this.ArtikelSearchLabel = new System.Windows.Forms.Label();
+            this.EBSearchLabel = new System.Windows.Forms.Label();
+            this.ArtikelSearch = new System.Windows.Forms.TextBox();
+            this.EBSearch = new System.Windows.Forms.TextBox();
             this.DataGridViewSE = new System.Windows.Forms.DataGridView();
             this.dataSetSE = new System.Data.DataSet();
             this.dataTable1 = new System.Data.DataTable();
@@ -267,7 +274,6 @@
             this.dataColumn4 = new System.Data.DataColumn();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
-            this.textBox20 = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.contextMenuStrip2.SuspendLayout();
@@ -467,7 +473,7 @@
             this.tabControl1.Controls.Add(this.tabPage6);
             this.tabControl1.Controls.Add(this.tabPage7);
             this.tabControl1.Controls.Add(this.searchExportTab);
-            this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.tabControl1.Location = new System.Drawing.Point(0, 27);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -732,7 +738,7 @@
             this.label14.AutoSize = true;
             this.label14.Location = new System.Drawing.Point(283, 856);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(54, 17);
+            this.label14.Size = new System.Drawing.Size(41, 13);
             this.label14.TabIndex = 8;
             this.label14.Text = "label14";
             // 
@@ -2246,7 +2252,7 @@
             this.checkBox14.AutoSize = true;
             this.checkBox14.Location = new System.Drawing.Point(37, 309);
             this.checkBox14.Name = "checkBox14";
-            this.checkBox14.Size = new System.Drawing.Size(131, 21);
+            this.checkBox14.Size = new System.Drawing.Size(105, 17);
             this.checkBox14.TabIndex = 20;
             this.checkBox14.Text = "Aktieviere  AP 1 ";
             this.checkBox14.UseVisualStyleBackColor = true;
@@ -2256,7 +2262,7 @@
             this.checkBox1.AutoSize = true;
             this.checkBox1.Location = new System.Drawing.Point(37, 282);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(99, 21);
+            this.checkBox1.Size = new System.Drawing.Size(80, 17);
             this.checkBox1.TabIndex = 19;
             this.checkBox1.Text = "Multi Artikel";
             this.checkBox1.UseVisualStyleBackColor = true;
@@ -2266,7 +2272,7 @@
             this.checkBox4.AutoSize = true;
             this.checkBox4.Location = new System.Drawing.Point(780, 56);
             this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(95, 21);
+            this.checkBox4.Size = new System.Drawing.Size(80, 17);
             this.checkBox4.TabIndex = 18;
             this.checkBox4.Text = "checkBox4";
             this.checkBox4.UseVisualStyleBackColor = true;
@@ -2275,7 +2281,7 @@
             // 
             this.textBox15.Location = new System.Drawing.Point(224, 108);
             this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(100, 23);
+            this.textBox15.Size = new System.Drawing.Size(100, 20);
             this.textBox15.TabIndex = 16;
             this.textBox15.Text = "500";
             // 
@@ -2284,7 +2290,7 @@
             this.label32.AutoSize = true;
             this.label32.Location = new System.Drawing.Point(138, 212);
             this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(54, 17);
+            this.label32.Size = new System.Drawing.Size(41, 13);
             this.label32.TabIndex = 14;
             this.label32.Text = "label32";
             // 
@@ -2293,7 +2299,7 @@
             this.label31.AutoSize = true;
             this.label31.Location = new System.Drawing.Point(138, 189);
             this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(54, 17);
+            this.label31.Size = new System.Drawing.Size(41, 13);
             this.label31.TabIndex = 13;
             this.label31.Text = "label31";
             // 
@@ -2302,7 +2308,7 @@
             this.label30.AutoSize = true;
             this.label30.Location = new System.Drawing.Point(138, 157);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(54, 17);
+            this.label30.Size = new System.Drawing.Size(41, 13);
             this.label30.TabIndex = 12;
             this.label30.Text = "label30";
             // 
@@ -2311,7 +2317,7 @@
             this.label29.AutoSize = true;
             this.label29.Location = new System.Drawing.Point(138, 129);
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(54, 17);
+            this.label29.Size = new System.Drawing.Size(41, 13);
             this.label29.TabIndex = 11;
             this.label29.Text = "label29";
             // 
@@ -2320,7 +2326,7 @@
             this.label28.AutoSize = true;
             this.label28.Location = new System.Drawing.Point(35, 108);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(48, 17);
+            this.label28.Size = new System.Drawing.Size(37, 13);
             this.label28.TabIndex = 10;
             this.label28.Text = "Status";
             // 
@@ -2329,7 +2335,7 @@
             this.label27.AutoSize = true;
             this.label27.Location = new System.Drawing.Point(34, 212);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(58, 17);
+            this.label27.Size = new System.Drawing.Size(46, 13);
             this.label27.TabIndex = 9;
             this.label27.Text = "Gewicht";
             // 
@@ -2338,7 +2344,7 @@
             this.label26.AutoSize = true;
             this.label26.Location = new System.Drawing.Point(34, 186);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(87, 17);
+            this.label26.Size = new System.Drawing.Size(66, 13);
             this.label26.TabIndex = 8;
             this.label26.Text = "Kette Ap 1-5";
             // 
@@ -2347,7 +2353,7 @@
             this.label25.AutoSize = true;
             this.label25.Location = new System.Drawing.Point(36, 158);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(34, 17);
+            this.label25.Size = new System.Drawing.Size(27, 13);
             this.label25.TabIndex = 7;
             this.label25.Text = "AP3";
             // 
@@ -2356,7 +2362,7 @@
             this.label24.AutoSize = true;
             this.label24.Location = new System.Drawing.Point(36, 129);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(34, 17);
+            this.label24.Size = new System.Drawing.Size(27, 13);
             this.label24.TabIndex = 6;
             this.label24.Text = "AP1";
             this.label24.Click += new System.EventHandler(this.label24_Click);
@@ -2366,7 +2372,7 @@
             this.label23.AutoSize = true;
             this.label23.Location = new System.Drawing.Point(777, 40);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(54, 17);
+            this.label23.Size = new System.Drawing.Size(41, 13);
             this.label23.TabIndex = 5;
             this.label23.Text = "label23";
             // 
@@ -2389,7 +2395,7 @@
             this.label22.AutoSize = true;
             this.label22.Location = new System.Drawing.Point(112, 140);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(75, 17);
+            this.label22.Size = new System.Drawing.Size(58, 13);
             this.label22.TabIndex = 7;
             this.label22.Text = "Button Clik";
             this.label22.Click += new System.EventHandler(this.label22_Click);
@@ -2398,7 +2404,7 @@
             // 
             this.textBox13.Location = new System.Drawing.Point(6, 137);
             this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(100, 23);
+            this.textBox13.Size = new System.Drawing.Size(100, 20);
             this.textBox13.TabIndex = 6;
             this.textBox13.Text = "9";
             // 
@@ -2407,7 +2413,7 @@
             this.checkBox3.AutoSize = true;
             this.checkBox3.Location = new System.Drawing.Point(6, 79);
             this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(128, 21);
+            this.checkBox3.Size = new System.Drawing.Size(101, 17);
             this.checkBox3.TabIndex = 5;
             this.checkBox3.Text = "Erkenung Fertig";
             this.checkBox3.UseVisualStyleBackColor = true;
@@ -2417,7 +2423,7 @@
             this.radioButton43.AutoSize = true;
             this.radioButton43.Location = new System.Drawing.Point(3, 38);
             this.radioButton43.Name = "radioButton43";
-            this.radioButton43.Size = new System.Drawing.Size(115, 21);
+            this.radioButton43.Size = new System.Drawing.Size(91, 17);
             this.radioButton43.TabIndex = 1;
             this.radioButton43.TabStop = true;
             this.radioButton43.Text = "radioButton43";
@@ -2428,7 +2434,7 @@
             this.radioButton42.AutoSize = true;
             this.radioButton42.Location = new System.Drawing.Point(3, 16);
             this.radioButton42.Name = "radioButton42";
-            this.radioButton42.Size = new System.Drawing.Size(115, 21);
+            this.radioButton42.Size = new System.Drawing.Size(91, 17);
             this.radioButton42.TabIndex = 0;
             this.radioButton42.TabStop = true;
             this.radioButton42.Text = "radioButton42";
@@ -2449,7 +2455,7 @@
             this.label21.AutoSize = true;
             this.label21.Location = new System.Drawing.Point(138, 108);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(54, 17);
+            this.label21.Size = new System.Drawing.Size(41, 13);
             this.label21.TabIndex = 2;
             this.label21.Text = "label21";
             // 
@@ -2458,7 +2464,7 @@
             this.checkBox2.AutoSize = true;
             this.checkBox2.Location = new System.Drawing.Point(118, 56);
             this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(116, 21);
+            this.checkBox2.Size = new System.Drawing.Size(93, 17);
             this.checkBox2.TabIndex = 1;
             this.checkBox2.Text = "Aktiviere Lese";
             this.checkBox2.UseVisualStyleBackColor = true;
@@ -2511,7 +2517,7 @@
             this.checkBox6.AutoSize = true;
             this.checkBox6.Location = new System.Drawing.Point(266, 104);
             this.checkBox6.Name = "checkBox6";
-            this.checkBox6.Size = new System.Drawing.Size(106, 21);
+            this.checkBox6.Size = new System.Drawing.Size(84, 17);
             this.checkBox6.TabIndex = 57;
             this.checkBox6.Text = "Trigger Auto";
             this.checkBox6.UseVisualStyleBackColor = true;
@@ -2581,7 +2587,7 @@
             this.checkBox10.AutoSize = true;
             this.checkBox10.Location = new System.Drawing.Point(1523, 411);
             this.checkBox10.Name = "checkBox10";
-            this.checkBox10.Size = new System.Drawing.Size(103, 21);
+            this.checkBox10.Size = new System.Drawing.Size(86, 17);
             this.checkBox10.TabIndex = 44;
             this.checkBox10.Text = "checkBox10";
             this.checkBox10.UseVisualStyleBackColor = true;
@@ -2852,21 +2858,92 @@
             // 
             // searchExportTab
             // 
+            this.searchExportTab.Controls.Add(this.RestinhaltSearch);
             this.searchExportTab.Controls.Add(this.textBox20);
+            this.searchExportTab.Controls.Add(this.EB);
+            this.searchExportTab.Controls.Add(this.ArtikelSearchLabel);
+            this.searchExportTab.Controls.Add(this.EBSearchLabel);
+            this.searchExportTab.Controls.Add(this.ArtikelSearch);
+            this.searchExportTab.Controls.Add(this.EBSearch);
             this.searchExportTab.Controls.Add(this.DataGridViewSE);
-            this.searchExportTab.Location = new System.Drawing.Point(4, 29);
+            this.searchExportTab.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.searchExportTab.Location = new System.Drawing.Point(4, 25);
             this.searchExportTab.Name = "searchExportTab";
-            this.searchExportTab.Size = new System.Drawing.Size(1808, 900);
+            this.searchExportTab.Size = new System.Drawing.Size(1808, 904);
             this.searchExportTab.TabIndex = 7;
             this.searchExportTab.Text = "Suche / Export";
             this.searchExportTab.UseVisualStyleBackColor = true;
+            // 
+            // RestinhaltSearch
+            // 
+            this.RestinhaltSearch.AutoSize = true;
+            this.RestinhaltSearch.Location = new System.Drawing.Point(321, 21);
+            this.RestinhaltSearch.Name = "RestinhaltSearch";
+            this.RestinhaltSearch.Size = new System.Drawing.Size(54, 13);
+            this.RestinhaltSearch.TabIndex = 7;
+            this.RestinhaltSearch.Text = "Restinhalt";
+            // 
+            // textBox20
+            // 
+            this.textBox20.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.textBox20.Location = new System.Drawing.Point(324, 37);
+            this.textBox20.Name = "textBox20";
+            this.textBox20.Size = new System.Drawing.Size(115, 23);
+            this.textBox20.TabIndex = 6;
+            this.textBox20.TextChanged += new System.EventHandler(this.RestinhaltSearch_TextChanged);
+            // 
+            // EB
+            // 
+            this.EB.AutoSize = true;
+            this.EB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EB.Location = new System.Drawing.Point(11, 40);
+            this.EB.Name = "EB";
+            this.EB.Size = new System.Drawing.Size(28, 16);
+            this.EB.TabIndex = 5;
+            this.EB.Text = "EB";
+            // 
+            // ArtikelSearchLabel
+            // 
+            this.ArtikelSearchLabel.AutoSize = true;
+            this.ArtikelSearchLabel.Location = new System.Drawing.Point(174, 21);
+            this.ArtikelSearchLabel.Name = "ArtikelSearchLabel";
+            this.ArtikelSearchLabel.Size = new System.Drawing.Size(73, 13);
+            this.ArtikelSearchLabel.TabIndex = 4;
+            this.ArtikelSearchLabel.Text = "Artikelnummer";
+            // 
+            // EBSearchLabel
+            // 
+            this.EBSearchLabel.AutoSize = true;
+            this.EBSearchLabel.Location = new System.Drawing.Point(38, 21);
+            this.EBSearchLabel.Name = "EBSearchLabel";
+            this.EBSearchLabel.Size = new System.Drawing.Size(60, 13);
+            this.EBSearchLabel.TabIndex = 3;
+            this.EBSearchLabel.Text = "EBNummer";
+            // 
+            // ArtikelSearch
+            // 
+            this.ArtikelSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.ArtikelSearch.Location = new System.Drawing.Point(177, 37);
+            this.ArtikelSearch.Name = "ArtikelSearch";
+            this.ArtikelSearch.Size = new System.Drawing.Size(115, 23);
+            this.ArtikelSearch.TabIndex = 2;
+            this.ArtikelSearch.TextChanged += new System.EventHandler(this.ArtikelSearch_TextChanged);
+            // 
+            // EBSearch
+            // 
+            this.EBSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.EBSearch.Location = new System.Drawing.Point(39, 37);
+            this.EBSearch.Name = "EBSearch";
+            this.EBSearch.Size = new System.Drawing.Size(115, 23);
+            this.EBSearch.TabIndex = 1;
+            this.EBSearch.TextChanged += new System.EventHandler(this.EBSearch_TextChanged);
             // 
             // DataGridViewSE
             // 
             this.DataGridViewSE.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DataGridViewSE.Location = new System.Drawing.Point(3, 66);
             this.DataGridViewSE.Name = "DataGridViewSE";
-            this.DataGridViewSE.Size = new System.Drawing.Size(994, 835);
+            this.DataGridViewSE.Size = new System.Drawing.Size(436, 835);
             this.DataGridViewSE.TabIndex = 0;
             // 
             // dataSetSE
@@ -2910,14 +2987,6 @@
             // 
             this.timer2.Interval = 5000;
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
-            // 
-            // textBox20
-            // 
-            this.textBox20.Location = new System.Drawing.Point(3, 26);
-            this.textBox20.Name = "textBox20";
-            this.textBox20.Size = new System.Drawing.Size(115, 23);
-            this.textBox20.TabIndex = 1;
-            this.textBox20.TextChanged += new System.EventHandler(this.textBox20_TextChanged);
             // 
             // Form1
             // 
@@ -3237,7 +3306,13 @@
 		private System.Data.DataColumn dataColumn2;
 		private System.Data.DataColumn dataColumn3;
 		private System.Data.DataColumn dataColumn4;
+        private System.Windows.Forms.TextBox EBSearch;
+        private System.Windows.Forms.TextBox ArtikelSearch;
+        private System.Windows.Forms.Label ArtikelSearchLabel;
+        private System.Windows.Forms.Label EBSearchLabel;
+        private System.Windows.Forms.Label RestinhaltSearch;
         private System.Windows.Forms.TextBox textBox20;
+        private System.Windows.Forms.Label EB;
     }
 }
 

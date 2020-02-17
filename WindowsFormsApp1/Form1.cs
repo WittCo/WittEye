@@ -115,8 +115,11 @@ namespace WindowsFormsApp1
 
 		private void FillSEGridView(DataSet dataSetSE)
 		{
+            //Wird später durch Datenbankabruf ersetzt
             string xmlDir = @"V:\Offen Archiv\";
             int countFiles = Directory.GetFiles(xmlDir).Length;
+
+            int serial = 0;
 
             for (int i = 0; i < countFiles; i++)
             {
@@ -132,7 +135,8 @@ namespace WindowsFormsApp1
                     {
                         string artikelnummer = xmlPositionen.Item(j).SelectSingleNode("BelegePositionen.ArtikelNummer").InnerText;
                         string restinhalt = xmlPositionen.Item(j).SelectSingleNode("BelegePositionen.K_Restinhalt").InnerText;
-                        dataSetSE.Tables[0].Rows.Add(ebString, artikelnummer, restinhalt);
+                        dataSetSE.Tables[0].Rows.Add(ebString, artikelnummer, restinhalt, serial.ToString());
+                        serial++;
                     }
 
                 }
@@ -141,12 +145,26 @@ namespace WindowsFormsApp1
                     MessageBox.Show(e.Message);
                 }
             }
-
 			DataGridViewSE.AutoGenerateColumns = true;
 			DataGridViewSE.DataSource = dataSetSE.Tables[0];
 
-            //dataSetSE.Tables[0].Rows.Add("150", "156", "007");
+
+            //Setze Spalte auf nicht-sortiebar
+            foreach(DataGridViewColumn column in DataGridViewSE.Columns)
+            {
+                column.SortMode = DataGridViewColumnSortMode.NotSortable;
+            }
+
 		}
+
+        private void FilterSEGridView()
+        {
+            DataView ebDaten = new DataView(dataSetSE.Tables[0], "EBNummer LIKE'EB" + EBSearch.Text + "*'" , "EBNummer ASC", DataViewRowState.CurrentRows);
+            DataView artDaten = new DataView(ebDaten.ToTable(), "Artikelnummer LIKE'" + ArtikelSearch.Text + "*'", "Artikelnummer ASC", DataViewRowState.CurrentRows);
+            //DataView restDaten = new DataView(artDaten.ToTable(), "Restinhalt ")
+
+            DataGridViewSE.DataSource = artDaten;
+        }
 
 		public static class MyStaticValues
         {
@@ -2606,9 +2624,28 @@ namespace WindowsFormsApp1
         
             }
 
-        private void textBox20_TextChanged(object sender, EventArgs e)
+        private void EBSearch_TextChanged(object sender, EventArgs e)
         {
-            DataGridViewSE
+            SearchChanged();
+        }
+
+        private void ArtikelSearch_TextChanged(object sender, EventArgs e)
+        {
+            SearchChanged();
+        }
+
+        //Sobald in einem der Suchfelder etwas eingegeben wird, aktualisiert sich der Filter
+        private void SearchChanged()
+        {
+            if (EBSearch.TextLength > 0 || ArtikelSearch.TextLength > 0)
+                FilterSEGridView();
+            else
+                DataGridViewSE.DataSource = dataSetSE.Tables[0];
+        }
+
+        private void RestinhaltSearch_TextChanged(object sender, EventArgs e)
+        {
+            SearchChanged();
         }
 
         private void checkBox6_CheckedChanged_1(object sender, EventArgs e)
